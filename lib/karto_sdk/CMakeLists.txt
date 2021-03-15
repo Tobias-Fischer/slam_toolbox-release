@@ -8,7 +8,7 @@ find_package(catkin REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(Boost REQUIRED system serialization filesystem thread)
 find_package(TBB REQUIRED)
-add_compile_options(-std=c++11)
+
 
 catkin_package(
   DEPENDS 
@@ -24,7 +24,7 @@ catkin_package(
 add_definitions(${EIGEN3_DEFINITIONS})
 
 include_directories(include ${catkin_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIRS} ${TBB_INCLUDE_DIRS} ${Boost_INCLUDE_DIR})
-add_library(karto SHARED src/Karto.cpp src/Mapper.cpp)
+add_library(karto src/Karto.cpp src/Mapper.cpp)
 target_link_libraries(karto ${Boost_LIBRARIES} ${TBB_LIBRARIES})
 
 install(DIRECTORY include/ DESTINATION include)
